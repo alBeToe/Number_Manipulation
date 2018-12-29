@@ -14,6 +14,8 @@
  */
 public class Number {
     
+	private static final int MIN_BASE = 2;
+	private static final int MAX_BASE = 36;
     private static final int DECIMAL_BASE = 10;
     private static final String DIGITS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     
@@ -47,7 +49,7 @@ public class Number {
      */
     public Number(int base, String value) throws NumberException {
         
-        if(base < 2 || base > 36) {
+        if(base < MIN_BASE || base > MAX_BASE) {
             throw new NumberException(
                     "The base must be greater than 1 and least than 36.");   
         }
