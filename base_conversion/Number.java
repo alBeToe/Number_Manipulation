@@ -156,4 +156,27 @@ public class Number {
     public String toString() {
         return new String(value) + "(" + base + ")";
     }
+	
+	// A main method to do some tests.
+    public static void main(String[] args) {
+        
+        Number n16 = null;
+        Number n10a = null;
+        Number n35 = null;
+        Number n8 = null;
+        Number n10b = null;
+        
+        try {
+            n16 = new Number(36, "ZZZZZZ");
+            n10a = n16.convertToDecimal();
+            n35 = n10a.convertToBase(35);
+            n8 = n35.convertToBase(8);
+            n10b = n8.convertToDecimal();
+            
+            System.out.println(n16 + " -> " + n10a + " -> " + n35 + " -> " 
+                                + n8 + " -> " + n10b);
+        } catch(NumberException exc) {
+            System.out.println(exc.getMessage());
+        }
+    }
 }
